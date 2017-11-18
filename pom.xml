@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ru.demi.spring</groupId>
-	<artifactId>di</artifactId>
+	<artifactId>spring-examples</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>dependency injection</name>
-	<description>Demo project for Spring Boot</description>
+	<name>spring examples</name>
+	<description>spring examples by udemy tutorial</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -45,6 +45,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
