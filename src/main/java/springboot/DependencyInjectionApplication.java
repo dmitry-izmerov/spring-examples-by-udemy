@@ -1,12 +1,14 @@
-package ru.demi.spring;
+package springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 import ru.demi.spring.ctrls.HelloCtrl;
 
 @SpringBootApplication
+@ComponentScan({"ru.demi.spring.ctrls", "ru.demi.spring.services"})
 public class DependencyInjectionApplication {
 
 	public static void main(String[] args) {
