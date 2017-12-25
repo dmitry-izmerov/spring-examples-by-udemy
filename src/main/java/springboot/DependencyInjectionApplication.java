@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import ru.demi.spring.ctrls.HelloCtrl;
 
 @SpringBootApplication
-@ComponentScan({"ru.demi.spring.ctrls", "ru.demi.spring.services"})
+@ComponentScan("ru.demi.spring")
 public class DependencyInjectionApplication {
 
 	public static void main(String[] args) {
