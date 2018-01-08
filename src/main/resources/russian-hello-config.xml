@@ -3,11 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <import resource="hello-app-config.xml"/>
-
-    <bean id="helloCtrl" class="ru.demi.spring.ctrls.HelloCtrl">
-        <property name="helloService" ref="helloServiceDefault"/>
-        <property name="helloServiceGerman" ref="helloServiceGerman"/>
-        <property name="helloServiceItalian" ref="italian"/>
+    <bean id="helloServiceDefault" primary="true" factory-bean="helloServiceFactory" factory-method="createHelloService">
+        <constructor-arg value="RU"/>
     </bean>
+
 </beans>
