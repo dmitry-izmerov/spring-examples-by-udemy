@@ -1,24 +1,26 @@
 package ru.demi.spring.ctrls;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Controller;
-
 import ru.demi.spring.services.HelloService;
 
-@Controller
 public class HelloCtrl {
 
-    @Autowired
     private HelloService helloService;
 
-    @Autowired
-    @Qualifier("helloServiceGerman")
     private HelloService helloServiceGerman;
 
-    @Autowired
-    @Qualifier("italian")
     private HelloService helloServiceItalian;
+
+    public void setHelloService(HelloService helloService) {
+        this.helloService = helloService;
+    }
+
+    public void setHelloServiceGerman(HelloService helloServiceGerman) {
+        this.helloServiceGerman = helloServiceGerman;
+    }
+
+    public void setHelloServiceItalian(HelloService helloServiceItalian) {
+        this.helloServiceItalian = helloServiceItalian;
+    }
 
     public void sayHello() {
         String greeting = helloService.getGreeting();

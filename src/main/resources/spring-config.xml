@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:component-scan base-package="ru.demi.spring"/>
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="helloCtrl" class="ru.demi.spring.ctrls.HelloCtrl">
+        <property name="helloService" ref="helloServiceDefault"/>
+        <property name="helloServiceGerman" ref="helloServiceGerman"/>
+        <property name="helloServiceItalian" ref="italian"/>
+    </bean>
+
+    <bean id="helloServiceFactory" class="ru.demi.spring.services.HelloServiceFactory"/>
+
+    <bean id="helloServiceGerman" factory-bean="helloServiceFactory" factory-method="createHelloService">
+        <constructor-arg value="GE"/>
+    </bean>
+
+    <bean id="italian" factory-bean="helloServiceFactory" factory-method="createHelloService">
+        <constructor-arg value="IT"/>
+    </bean>
+
+    <bean id="helloServiceSpanish" factory-bean="helloServiceFactory" factory-method="createHelloService">
+        <constructor-arg value="SP"/>
+    </bean>
+
+    <beans profile="english">
+        <bean id="helloServiceDefault" factory-bean="helloServiceFactory" factory-method="createHelloService">
+            <constructor-arg value="EN"/>
+        </bean>
+    </beans>
+
+    <beans profile="default, russian">
+        <bean id="helloServiceDefault" primary="true" factory-bean="helloServiceFactory" factory-method="createHelloService">
+            <constructor-arg value="RU"/>
+        </bean>
+    </beans>
 </beans>
